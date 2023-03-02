@@ -3,6 +3,9 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Frontend\CategoryContoller as FrontendCategoryController;
+use App\Http\Controllers\Frontend\MenuContoller as FrontendMenuController;
+use App\Http\Controllers\Frontend\RimoliController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +23,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/categories' , [FrontendCategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/{category}' , [FrontendCategoryController::class, 'show'])->name('categories.show');
+Route::get('/menus' , [FrontendMenuController::class, 'index'])->name('menus.index');
+Route::get('/menus' , [FrontendMenuController::class, 'antipasti'])->name('menus.index');
+
+// Route::get('/menus' , [RimoliController::class, 'rimoli'])->name('menus.index');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

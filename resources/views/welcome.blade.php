@@ -11,15 +11,13 @@
 </head>
 <body>
 
-    <header>
-        <div class="container-fluid">
-            <div class="row vh-100">
-                <div class="col-12 d-flex justify-center align-middle">
-                    <img src="{{ asset('image/landing.jpg') }}" class="justify-content-center img-fluid" alt="">
-                </div>
-            </div>
-        </div>
+    <header class="landing">
+        <div class="container">
+            <img src="{{ asset('image/landing.jpg') }}" alt="Snow">
+            <a href="{{ route('menus.index') }}" class="text-decoration-none">
+                <button class="btn font-bold hover:bg-pink-500 hover:text-white">Menu</button>
+            </a>
+          </div>
     </header>
-
 </body>
 </html>
