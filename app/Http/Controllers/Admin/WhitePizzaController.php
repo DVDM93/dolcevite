@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\WhitePizza;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class WhitePizzaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $whitePizzas = WhitePizza::all();
+        return view('admin.white_pizzas.index' , compact('whitePizzas'));
     }
 
     /**

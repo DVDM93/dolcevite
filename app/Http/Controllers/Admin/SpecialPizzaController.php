@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SpecialPizza;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class SpecialPizzaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $specialPizzas = SpecialPizza::all();
+        return view('admin.special_pizzas.index' , compact('specialPizzas'));
     }
 
     /**

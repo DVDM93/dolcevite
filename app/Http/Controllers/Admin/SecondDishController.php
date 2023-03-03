@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SecondDish;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class SecondDishController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $secondDishes = SecondDish::all();
+        return view('admin.second_dishes.index' , compact('secondDishes'));
     }
 
     /**

@@ -3,16 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Starters;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class StarterController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $starters = Starters::all();
+        return view('admin.starters.index' , compact('starters'));
+
     }
 
     /**

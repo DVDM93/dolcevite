@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Red_Pizza extends Model
+class RedPizza extends Model
 {
     use HasFactory;
 }

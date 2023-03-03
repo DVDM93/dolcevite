@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dessert;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class DessertController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
+        $desserts = Dessert::all();
+        return view('admin.desserts.index' , compact('desserts'));    }
 
     /**
      * Show the form for creating a new resource.

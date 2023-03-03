@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rimoli;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class RimoliController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $rimolis = Rimoli::all();
+        return view('admin.rimolis.index' , compact('rimolis'));
     }
 
     /**

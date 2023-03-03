@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\RedPizza;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class RedPizzaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
+        $redPizzas = RedPizza::all();
+        return view('admin.red_pizzas.index' , compact('redPizzas'));    }
 
     /**
      * Show the form for creating a new resource.

@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cocktail;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class CocktailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $cocktails = Cocktail::all();
+        return view('admin.cocktails.index' , compact('cocktails'));
     }
 
     /**

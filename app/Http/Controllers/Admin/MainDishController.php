@@ -3,16 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\MainDish;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class MainDishController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $mainDishes = MainDish::all();
+        return view('admin.main_dishes.index' , compact('mainDishes'));
+
     }
 
     /**

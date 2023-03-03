@@ -27,12 +27,40 @@
                     </button>
                 </div>
                     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-                        <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
-                            {{ __('Categories') }}
+                        <x-admin-nav-link :href="route('admin.starters.index')" :active="request()->routeIs('admin.starters.index')">
+                            {{ __('Antipasti') }}
                         </x-admin-nav-link>
-                        <x-admin-nav-link :href="route('admin.menus.index')" :active="request()->routeIs('admin.menus.index')">
-                            {{ __('Menus ') }}
+                        <x-admin-nav-link :href="route('admin.rimolis.index')" :active="request()->routeIs('admin.rimolis.index')">
+                            {{ __('Rimoli') }}
                         </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.main_dishes.index')" :active="request()->routeIs('admin.main_dishes.index')">
+                            {{ __('Primi') }}
+                        </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.second_dishes.index')" :active="request()->routeIs('admin.second_dishes.index')">
+                            {{ __('Secondi') }}
+                        </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.red_pizzas.index')" :active="request()->routeIs('admin.red_pizzas.index')">
+                            {{ __('Pizze Rosse') }}
+                        </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.white_pizzas.index')" :active="request()->routeIs('admin.white_pizzas.index')">
+                            {{ __('Pizze Bianche') }}
+                        </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.special_pizzas.index')" :active="request()->routeIs('admin.special_pizzas.index')">
+                            {{ __('Pizze Speciali') }}
+                        </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.new_entries.index')" :active="request()->routeIs('admin.new_entries.index')">
+                            {{ __('News') }}
+                        </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.desserts.index')" :active="request()->routeIs('admin.desserts.index')">
+                            {{ __('Dessert') }}
+                        </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.cocktails.index')" :active="request()->routeIs('admin.cocktails.index')">
+                            {{ __('Cocktails') }}
+                        </x-admin-nav-link>
+                        <x-admin-nav-link :href="route('admin.vinos.index')" :active="request()->routeIs('admin.vinos.index')">
+                            {{ __('Vino') }}
+                        </x-admin-nav-link>
+
 
                         <div @click.away="open = false" class="relative" x-data="{ open: false }">
                             <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">

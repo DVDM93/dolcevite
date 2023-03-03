@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\NewEntry;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class NewEntryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
+        $newEntries = NewEntry::all();
+        return view('admin.new_entries.index' , compact('newEntries'));    }
 
     /**
      * Show the form for creating a new resource.

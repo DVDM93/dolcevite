@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Vino;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class VinoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $vinos = Vino::all();
+        return view('admin.vinos.index' , compact('vinos'));
     }
 
     /**
