@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CocktailStoreRequest;
 use App\Models\Cocktail;
 use Illuminate\Http\Request;
 
@@ -22,15 +23,26 @@ class CocktailController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.cocktails.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CocktailStoreRequest $request)
     {
-        //
+        $image = $request->file('image')->store('public/cocktails');
+
+        Cocktail::create([
+            'name' => $request->name,
+            'image' => $image,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'price' => $request->price,
+            ]);
+
+            return to_route('admin.cocktails.index');
     }
 
     /**

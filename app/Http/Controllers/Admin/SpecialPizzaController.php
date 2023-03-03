@@ -22,7 +22,8 @@ class SpecialPizzaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.special_pizzas.create');
+
     }
 
     /**

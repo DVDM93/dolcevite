@@ -23,7 +23,8 @@ class StarterController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.starters.create');
+
     }
 
     /**

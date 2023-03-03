@@ -22,7 +22,8 @@ class RimoliController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.rimolis.create');
+
     }
 
     /**

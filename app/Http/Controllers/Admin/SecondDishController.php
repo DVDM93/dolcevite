@@ -22,7 +22,8 @@ class SecondDishController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.second_dishes.create');
+
     }
 
     /**

@@ -21,7 +21,8 @@ class NewEntryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.new_entries.create');
+
     }
 
     /**

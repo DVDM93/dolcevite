@@ -22,7 +22,8 @@ class WhitePizzaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.white_pizzas.create');
+
     }
 
     /**

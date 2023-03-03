@@ -22,7 +22,8 @@ class VinoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.vinos.create');
+
     }
 
     /**

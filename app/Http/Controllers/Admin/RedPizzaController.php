@@ -21,7 +21,8 @@ class RedPizzaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.red_pizzas.create');
+
     }
 
     /**
