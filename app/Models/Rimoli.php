@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rimoli extends Model
 {
     use HasFactory;
+
+    protected $fillable  = ['name' , 'image' , 'price' , 'description', 'description2' , 'description3',];
+
 }

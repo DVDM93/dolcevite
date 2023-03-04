@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Starters extends Model
 {
     use HasFactory;
+    protected $fillable  = ['name' , 'image' , 'price' , 'description', 'description2' , 'description3',];
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StarterStoreRequest;
 use App\Models\Starters;
 use Illuminate\Http\Request;
 
@@ -30,9 +31,20 @@ class StarterController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StarterStoreRequest $request)
     {
-        //
+        $image = $request->file('image')->store('public/starters');
+
+        Starters::create([
+            'name' => $request->name,
+            'image' => $image,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'price' => $request->price,
+            ]);
+
+            return to_route('admin.starters.index');
     }
 
     /**

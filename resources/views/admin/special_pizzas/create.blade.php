@@ -16,7 +16,7 @@
 
             <div class="m-2 p-2 bg-slate-100 rounded">
                 <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                    <form method="POST" action="{{ route('admin.menus.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.special_pizzas.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="sm:col-span-6 mb-2">
                             <label for="name" class="block text-sm font-medium text-gray-700"> Nome </label>
@@ -59,22 +59,22 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="body" class="block text-sm font-medium text-gray-700">Descrizione 2</label>
+                            <label for="body2" class="block text-sm font-medium text-gray-700">Descrizione 2</label>
                             <div class="mt-1">
-                                <textarea id="body" rows="3" name="description2"
+                                <textarea id="body2" rows="3" name="description2"
                                     class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                             </div>
-                            @error('description')
+                            @error('description2')
                                 <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="body" class="block text-sm font-medium text-gray-700">Descrizione 3</label>
+                            <label for="body3" class="block text-sm font-medium text-gray-700">Descrizione 3</label>
                             <div class="mt-1">
-                                <textarea id="body" rows="3" name="description3"
+                                <textarea id="body3" rows="3" name="description3"
                                     class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                             </div>
-                            @error('description')
+                            @error('description3')
                                 <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>

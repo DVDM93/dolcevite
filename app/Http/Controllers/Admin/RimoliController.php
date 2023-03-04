@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RimoliStoreRequest;
 use App\Models\Rimoli;
 use Illuminate\Http\Request;
 
@@ -29,9 +30,20 @@ class RimoliController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RimoliStoreRequest $request)
     {
-        //
+        $image = $request->file('image')->store('public/rimolis');
+
+        Rimoli::create([
+            'name' => $request->name,
+            'image' => $image,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'price' => $request->price,
+            ]);
+
+            return to_route('admin.rimolis.index');
     }
 
     /**

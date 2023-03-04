@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewEntryStoreRequest;
 use App\Models\NewEntry;
 use Illuminate\Http\Request;
 
@@ -28,9 +29,20 @@ class NewEntryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(NewEntryStoreRequest $request)
     {
-        //
+        $image = $request->file('image')->store('public/new_entries');
+
+        NewEntry::create([
+            'name' => $request->name,
+            'image' => $image,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'price' => $request->price,
+            ]);
+
+            return to_route('admin.new_entries.index');
     }
 
     /**

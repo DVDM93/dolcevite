@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RedPizzaStoreRequest;
 use App\Models\RedPizza;
 use Illuminate\Http\Request;
 
@@ -28,9 +29,20 @@ class RedPizzaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RedPizzaStoreRequest $request)
     {
-        //
+        $image = $request->file('image')->store('public/red_pizzas');
+
+        RedPizza::create([
+            'name' => $request->name,
+            'image' => $image,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'price' => $request->price,
+            ]);
+
+            return to_route('admin.red_pizzas.index');
     }
 
     /**
