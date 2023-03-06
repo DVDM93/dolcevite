@@ -95,8 +95,11 @@ class MainDishController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(MainDish $mainDish)
     {
-        //
+        Storage::delete($mainDish->image);
+        $mainDish->delete();
+
+        return to_route('admin.main_dishes.index')->with('danger', 'Eliminato con successo');
     }
 }

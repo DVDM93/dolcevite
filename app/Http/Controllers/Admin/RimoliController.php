@@ -94,8 +94,11 @@ class RimoliController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Rimoli $rimoli)
     {
-        //
+        Storage::delete($rimoli->image);
+        $rimoli->delete();
+
+        return to_route('admin.rimolis.index')->with('danger', 'Eliminato con successo');
     }
 }

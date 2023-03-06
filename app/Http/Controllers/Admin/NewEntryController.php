@@ -94,8 +94,11 @@ class NewEntryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(NewEntry $newEntry)
     {
-        //
+        Storage::delete($newEntry->image);
+        $newEntry->delete();
+
+        return to_route('admin.new_entries.index')->with('danger', 'Eliminato con successo');
     }
 }

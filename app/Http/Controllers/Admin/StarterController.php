@@ -95,8 +95,11 @@ class StarterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Starters $starter)
     {
-        //
+        Storage::delete($starter->image);
+        $starter->delete();
+
+        return to_route('admin.starters.index')->with('danger', 'Eliminato con successo');
     }
 }

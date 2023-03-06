@@ -22,12 +22,12 @@ class StarterStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
+            'name',
             'image' => ['required', 'image'],
             'price' => ['required'],
-            'description' => ['required'],
-            'description2' => ['required'],
-            'description3' => ['required'],
+            'description',
+            'description2',
+            'description3',
         ];
     }
 }

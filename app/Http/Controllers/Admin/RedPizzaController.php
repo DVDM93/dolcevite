@@ -93,8 +93,11 @@ class RedPizzaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(RedPizza $redPizza)
     {
-        //
+        Storage::delete($redPizza->image);
+        $redPizza->delete();
+
+        return to_route('admin.red_pizzas.index')->with('danger', 'Eliminato con successo');
     }
 }

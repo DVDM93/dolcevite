@@ -94,8 +94,11 @@ class SpecialPizzaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(SpecialPizza $specialPizza)
     {
-        //
+        Storage::delete($specialPizza->image);
+        $specialPizza->delete();
+
+        return to_route('admin.special_pizzas.index')->with('danger', 'Eliminato con successo');
     }
 }

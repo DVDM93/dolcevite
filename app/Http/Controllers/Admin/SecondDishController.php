@@ -94,8 +94,11 @@ class SecondDishController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(SecondDish $secondDish)
     {
-        //
+        Storage::delete($secondDish->image);
+        $secondDish->delete();
+
+        return to_route('admin.second_dishes.index')->with('danger', 'Eliminato con successo');
     }
 }

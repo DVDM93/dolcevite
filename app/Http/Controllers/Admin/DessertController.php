@@ -94,8 +94,11 @@ class DessertController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Dessert $dessert)
     {
-        //
+        Storage::delete($dessert->image);
+        $dessert->delete();
+
+        return to_route('admin.desserts.index')->with('danger', 'Eliminato con successo');
     }
 }
