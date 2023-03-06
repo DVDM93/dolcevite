@@ -96,8 +96,11 @@ class VinoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Vino $vino)
     {
-        //
+        Storage::delete($vino->image);
+        $vino->delete();
+
+        return to_route('admin.vinos.index')->with('danger', 'Eliminato con successo');
     }
 }

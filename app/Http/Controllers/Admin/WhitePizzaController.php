@@ -95,8 +95,11 @@ class WhitePizzaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(WhitePizza $whitePizza)
     {
-        //
+        Storage::delete($whitePizza->image);
+        $whitePizza->delete();
+
+        return to_route('admin.white_pizzas.index')->with('allert', 'Eliminato con successo');
     }
 }

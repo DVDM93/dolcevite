@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CocktailStoreRequest;
 use App\Models\Cocktail;
+use App\Models\WhitePizza;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -91,8 +92,11 @@ class CocktailController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Cocktail $cocktail)
     {
-        //
+        Storage::delete($cocktail->image);
+        $cocktail->delete();
+
+        return to_route('admin.cocktails.index')->with('alert', 'Eliminato con successo');
     }
 }
