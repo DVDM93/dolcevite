@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\NewEntryStoreRequest;
 use App\Models\NewEntry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NewEntryController extends Controller
 {
@@ -56,17 +57,38 @@ class NewEntryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(NewEntry $newEntry)
     {
-        //
+        return view('admin.new_entries.edit', compact('newEntry'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, NewEntry $newEntry)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $image = $newEntry->image;
+         if ($request->hasFile('image')) {
+            Storage::delete($newEntry->image);
+            $image = $request->file('image')->store('public/new_entries');
+         }
+
+         $newEntry->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'image' => $image,
+            'price' => $request->price,
+         ]);
+
+         return to_route('admin.new_entries.index')->with('success', 'Modifica eseguita');
     }
 
     /**

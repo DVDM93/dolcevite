@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\VinoStoreRequest;
 use App\Models\Vino;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VinoController extends Controller
 {
@@ -41,6 +42,7 @@ class VinoController extends Controller
             'description2' => $request->description2,
             'description3' => $request->description3,
             'price' => $request->price,
+            'copa' => $request->copa,
         ]);
 
         return to_route('admin.vinos.index');
@@ -57,17 +59,38 @@ class VinoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Vino $vino)
     {
-        //
+        return view('admin.vinos.edit', compact('vino'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Vino $vino)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $image = $vino->image;
+         if ($request->hasFile('image')) {
+            Storage::delete($vino->image);
+            $image = $request->file('image')->store('public/vinos');
+         }
+
+         $vino->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'image' => $image,
+            'price' => $request->price,
+            'copa' => $request->copa,
+         ]);
+
+         return to_route('admin.vinos.index')->with('success', 'Modifica eseguita');
     }
 
     /**

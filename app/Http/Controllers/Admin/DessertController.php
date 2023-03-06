@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DessertStoreRequest;
 use App\Models\Dessert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DessertController extends Controller
 {
@@ -15,7 +16,8 @@ class DessertController extends Controller
     public function index()
     {
         $desserts = Dessert::all();
-        return view('admin.desserts.index' , compact('desserts'));    }
+        return view('admin.desserts.index', compact('desserts'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -40,9 +42,9 @@ class DessertController extends Controller
             'description2' => $request->description2,
             'description3' => $request->description3,
             'price' => $request->price,
-            ]);
+        ]);
 
-            return to_route('admin.desserts.index');
+        return to_route('admin.desserts.index');
     }
 
     /**
@@ -56,17 +58,37 @@ class DessertController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Dessert $dessert)
     {
-        //
+        return view('admin.Desserts.edit', compact('dessert'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Dessert $dessert)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $image = $dessert->image;
+         if ($request->hasFile('image')) {
+            Storage::delete($dessert->image);
+            $image = $request->file('image')->store('public/desserts');
+         }
+
+         $dessert->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'image' => $image,
+            'price' => $request->price,
+         ]);
+
+         return to_route('admin.desserts.index')->with('success', 'Modifica eseguita');
     }
 
     /**

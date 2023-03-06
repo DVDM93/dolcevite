@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StarterStoreRequest;
 use App\Models\Starters;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StarterController extends Controller
 {
@@ -58,17 +59,37 @@ class StarterController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Starters $starter)
     {
-        //
+        return view('admin.starters.edit', compact('starter'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Starters $starter)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $image = $starter->image;
+         if ($request->hasFile('image')) {
+            Storage::delete($starter->image);
+            $image = $request->file('image')->store('public/starters');
+         }
+
+         $starter->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'description2' => $request->description2,
+            'description3' => $request->description3,
+            'image' => $image,
+            'price' => $request->price,
+         ]);
+
+         return to_route('admin.starters.index')->with('success', 'Modifica eseguita');
     }
 
     /**

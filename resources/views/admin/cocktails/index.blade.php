@@ -30,12 +30,12 @@
                             <th scope="col" class="px-6 py-3">
                                 Descrizione
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            {{-- <th scope="col" class="px-6 py-3">
                                 Descrizione 2
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Descrizione 3
-                            </th>
+                            </th> --}}
                             <th scope="col" class="px-6 py-3">
                                 Price
                             </th>
@@ -53,27 +53,43 @@
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img src="{{ Storage::url($cocktail->image) }}" alt="" class="w-10 h-10 rounded">
+                                    <img src="{{ Storage::url($cocktail->image) }}" alt=""
+                                        class="w-10 h-10 rounded">
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $cocktail->description }}
                                 </th>
-                                <th scope="row"
+                                {{-- <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white truncate truncate-words-3">
                                     {{ $cocktail->description2 }}
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $cocktail->description3 }}
-                                </th>
+                                </th> --}}
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $cocktail->price }}
                                 </th>
 
-                            </tr>
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex space-x-2">
+                                        <a href="{{ route('admin.cocktails.edit', $cocktail->id) }}"
+                                            class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                                            Modifica </a>
+                                        <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                            action="{{ route('admin.cocktails.destroy', $cocktail->id) }}"
+                                            method="POST" onsubmit="return confirm('Confermi?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"> Elimina </button>
+                                        </form>
+                                    </div>
+                                </th>
 
+                            </tr>
                         @endforeach
 
                     </tbody>

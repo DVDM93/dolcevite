@@ -53,7 +53,8 @@
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img src="{{ Storage::url($secondDish->image) }}" alt="" class="w-10 h-10 rounded">
+                                    <img src="{{ Storage::url($secondDish->image) }}" alt=""
+                                        class="w-10 h-10 rounded">
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-truncate">
@@ -71,9 +72,23 @@
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $secondDish->price }}
                                 </th>
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex space-x-2">
+                                        <a href="{{ route('admin.second_dishes.edit', $secondDish->id) }}"
+                                            class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                                            Modifica </a>
+                                        <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                            action="{{ route('admin.second_dishes.destroy', $secondDish->id) }}" method="POST"
+                                            onsubmit="return confirm('Confermi?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"> Elimina </button>
+                                        </form>
+                                    </div>
+                                </th>
 
                             </tr>
-
                         @endforeach
 
                     </tbody>

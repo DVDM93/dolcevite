@@ -25,6 +25,7 @@ class VinoStoreRequest extends FormRequest
             'name' => ['required'],
             'image' => ['required', 'image'],
             'price' => ['required'],
+            'copa',
             'description',
             'description2',
             'description3',
