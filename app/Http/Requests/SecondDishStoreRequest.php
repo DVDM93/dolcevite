@@ -22,7 +22,7 @@ class SecondDishStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
+            'name',
             'image' => ['required', 'image'],
             'price' => ['required'],
             'description' => ['required'],

@@ -14,7 +14,7 @@
     <header class="landing">
         <div class="container">
             <img src="{{ asset('image/landing.jpg') }}" alt="Snow">
-            <a href="{{ route('menus.index') }}" class="text-decoration-none">
+            <a href="{{ route('menu') }}" class="text-decoration-none">
                 <button class="btn font-bold hover:bg-pink-500 hover:text-white">Menu</button>
             </a>
           </div>

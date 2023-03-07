@@ -70,7 +70,7 @@ class CocktailController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
+            // 'description' => 'required'
         ]);
         $image = $cocktail->image;
         if ($request->hasFile('image')) {

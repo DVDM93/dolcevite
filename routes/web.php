@@ -12,10 +12,10 @@ use App\Http\Controllers\Admin\RimoliController;
 use App\Http\Controllers\Admin\SecondDishController;
 use App\Http\Controllers\Admin\SpecialPizzaController;
 use App\Http\Controllers\Admin\StarterController;
+use App\Http\Controllers\Admin\StarterController as FrontendStarterController;
 use App\Http\Controllers\Admin\VinoController;
 use App\Http\Controllers\Admin\WhitePizzaController;
-use App\Http\Controllers\Frontend\CategoryContoller as FrontendCategoryController;
-use App\Http\Controllers\Frontend\MenuContoller as FrontendMenuController;
+use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,12 +34,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/categories' , [FrontendCategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/{category}' , [FrontendCategoryController::class, 'show'])->name('categories.show');
-Route::get('/menus' , [FrontendMenuController::class, 'index'])->name('menus.index');
-Route::get('/menus' , [FrontendMenuController::class, 'antipasti'])->name('menus.index');
+// Route::get('/menu', function () {
+//     return view('menu');
+// });
 
-// Route::get('/menus' , [RimoliController::class, 'rimoli'])->name('menus.index');
+Route::get('/menu' , [GeneralController::class, 'index'])->name('menu');
+
 
 
 Route::get('/dashboard', function () {
@@ -50,7 +50,7 @@ Route::middleware(['auth' ,'admin'] )->name('admin.')->prefix('admin')->group(fu
     Route::get('/' ,[ AdminController::class , 'index'])-> name('index');
      Route::resource('/starters' , StarterController::class);
      Route::resource('/rimolis' , RimoliController::class);
-     Route::resource('/menus' , MenuController::class);
+    //  Route::resource('/menus' , MenuController::class);
      Route::resource('/main_dishes' , MainDishController::class);
      Route::resource('/second_dishes' , SecondDishController::class);
      Route::resource('/red_pizzas' , RedPizzaController::class);

@@ -25,9 +25,9 @@ class CocktailStoreRequest extends FormRequest
             'name' => ['required'],
             'image' => ['required', 'image'],
             'price' => ['required'],
-            'description' => ['required'],
-            'description2' => ['required'],
-            'description3' => ['required'],
+            'description',
+            'description2',
+            'description3',
         ];
     }
 }
