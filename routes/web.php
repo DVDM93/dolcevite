@@ -38,7 +38,7 @@ Route::get('/', function () {
 //     return view('menu');
 // });
 
-Route::get('/menu' , [GeneralController::class, 'index'])->name('menu');
+Route::get('/' , [GeneralController::class, 'index'])->name('welcome');
 
 
 
