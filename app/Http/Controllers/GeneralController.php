@@ -52,12 +52,10 @@ class GeneralController extends Controller
     }
 
 
-    public function showStarter($id)
-{
-    $starter = Starters::findOrFail($id);
-
-    return view('detail', compact('starter'));
-}
+    public function starterShow(Starters $starter)
+    {
+        return view('starters.show', compact('starter'));
+    }
 
 
 }

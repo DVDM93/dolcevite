@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +10,8 @@
 
     <title>Document</title>
 </head>
-
 <body class="bodyclass">
-
-
-    <div class="card mb-4">
+    <div class="card">
         <div class="top">
             <div class="details">
                 <div class="profile-img">
@@ -26,7 +22,7 @@
             <img src="{{ asset('image/64576.png') }}" alt="" class="w-3 h-3">
         </div>
         <div class="imgBx">
-            <img src="{{ asset('image/io.jpg') }}" alt="" class="cover2">
+            <img src="{{ Storage::url($starter->image) }}" alt="" class="cover2">
         </div>
         <div class="actionBtns">
             <div class="left">
@@ -49,11 +45,6 @@
         </div>
         <h5 class="postTime"> 3 hours ago</h5>
     </div>
-
-
-
-
-
 </body>
-
 </html>
+

@@ -41,11 +41,7 @@ Route::get('/', function () {
 Route::get('/' , [GeneralController::class, 'index'])->name('welcome');
 Route::get('/prova' , [GeneralController::class, 'index2'])->name('prova');
 
-Route::get('/detail/{id}', [GeneralController::class, 'showStarter'])->name('detail');
-
-
-
-
+;Route::get('/starters/{starter}' , [GeneralController::class, 'starterShow'])->name('starters.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

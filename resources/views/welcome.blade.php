@@ -36,7 +36,7 @@
                             <p class="lead fontSize font-medium pb-2 mb-2">{{ $starter->description3 }}</p>
                         </div>
                         <div class="col-3">
-                            <a href="{{ 'prova' }}">
+                            <a href="{{ route('starters.show', $starter->id) }}">
                                 <img class="rounded border border-emerald-500 mb-3 frontCard" src="{{ Storage::url($starter->image) }}" alt="">
                             </a>
                         </div>
