@@ -53,10 +53,10 @@
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img src="{{ Storage::url($starter->image) }}" alt="" class="w-10 h-10 rounded">
+                                    <img src="{{ Storage::url($starter->image) }}" alt="" class="w-10 h-10 rounded img-fluid adaptive">
                                 </th>
                                 <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-truncate">
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white d-inline-block text-truncate" style="max-width: 230px">
                                     {{ $starter->description }}
                                 </th>
                                 {{-- <th scope="row"

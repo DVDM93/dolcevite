@@ -34,4 +34,30 @@ class GeneralController extends Controller
         $vinos = Vino::all();
         return view('welcome', compact('starters','rimolis', 'mainDishes', 'secondDishes', 'redPizzas', 'whitePizzas', 'specialPizzas', 'newEntries', 'desserts', 'cocktails', 'vinos' ));
     }
+
+    public function index2()
+    {
+        $starters = Starters::all();
+        $rimolis = Rimoli::all();
+        $mainDishes = MainDish::all();
+        $secondDishes = SecondDish::all();
+        $redPizzas = RedPizza::all();
+        $whitePizzas = WhitePizza::all();
+        $specialPizzas = SpecialPizza::all();
+        $newEntries = NewEntry::all();
+        $desserts = Dessert::all();
+        $cocktails = Cocktail::all();
+        $vinos = Vino::all();
+        return view('prova', compact('starters','rimolis', 'mainDishes', 'secondDishes', 'redPizzas', 'whitePizzas', 'specialPizzas', 'newEntries', 'desserts', 'cocktails', 'vinos' ));
+    }
+
+
+    public function showStarter($id)
+{
+    $starter = Starters::findOrFail($id);
+
+    return view('detail', compact('starter'));
+}
+
+
 }

@@ -39,6 +39,11 @@ Route::get('/', function () {
 // });
 
 Route::get('/' , [GeneralController::class, 'index'])->name('welcome');
+Route::get('/prova' , [GeneralController::class, 'index2'])->name('prova');
+
+Route::get('/detail/{id}', [GeneralController::class, 'showStarter'])->name('detail');
+
+
 
 
 
@@ -50,7 +55,6 @@ Route::middleware(['auth' ,'admin'] )->name('admin.')->prefix('admin')->group(fu
     Route::get('/' ,[ AdminController::class , 'index'])-> name('index');
      Route::resource('/starters' , StarterController::class);
      Route::resource('/rimolis' , RimoliController::class);
-    //  Route::resource('/menus' , MenuController::class);
      Route::resource('/main_dishes' , MainDishController::class);
      Route::resource('/second_dishes' , SecondDishController::class);
      Route::resource('/red_pizzas' , RedPizzaController::class);
