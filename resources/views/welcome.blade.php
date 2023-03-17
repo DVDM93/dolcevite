@@ -37,7 +37,8 @@
                         </div>
                         <div class="col-3">
                             <a href="{{ route('starters.show', $starter->id) }}">
-                                <img class="rounded border border-emerald-500 mb-3 frontCard" src="{{ Storage::url($starter->image) }}" alt="">
+                                <img class="rounded border border-emerald-500 mb-3 frontCard"
+                                    src="{{ Storage::url($starter->image) }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -46,10 +47,14 @@
                     @foreach ($rimolis as $rimoli)
                         <div class="row justify-center mt-2">
                             <div class="col-3">
-                                <img class="w-14 h-14 rounded" src="{{ Storage::url($rimoli->image) }}" alt="">
+                                <a href="{{ route('starters.show', $rimoli->id) }}">
+                                    <img class="rounded border border-emerald-500 mb-3 frontCard"
+                                        src="{{ Storage::url($rimoli->image) }}" alt="">
+                                </a>
                             </div>
                             <div class="col-9">
-                                <h6 class="text-red-500 font-bold pb-1"> {{ $rimoli->name }} <span> {{ $rimoli->price }}
+                                <h6 class="text-red-500 font-bold pb-1 "> {{ $rimoli->name }} <span>
+                                        {{ $rimoli->price }}
                                     </span> <span> € </span></h6>
                                 <p class="lead fontSize font-medium pb-1">{{ $rimoli->description }}</p>
                                 <p class="lead fontSize font-medium pb-1">{{ $rimoli->description2 }}</p>
@@ -58,8 +63,11 @@
                         </div>
                     @endforeach
                 </div>
+            </div>
+
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 d-flex justify-content-center fontSizeCategory">
+                    <div class="col-12 d-flex justify-content-center p-4">
                         <h3 class=" font-bold text-slate-500 mb-3 fontSizeCategory"> antipasti </h3>
                     </div>
                 </div>
@@ -78,7 +86,10 @@
                             <p class="lead fontSize font-medium pb-1">{{ $mainDish->description3 }}</p>
                         </div>
                         <div class="col-3">
-                            <img class="w-20 h-20 rounded menuImgBox" src="{{ Storage::url($mainDish->image) }}" alt="">
+                            <a href="{{ route('main_dishes.show', $mainDish->id) }}">
+                                <img class="rounded border border-emerald-500 mb-3 frontCard"
+                                    src="{{ Storage::url($mainDish->image) }}" alt="">
+                            </a>
                         </div>
                     </div>
                 @endforeach
@@ -94,7 +105,10 @@
                 @foreach ($secondDishes as $secondDish)
                     <div class="row justify-center mt-2">
                         <div class="col-3">
-                            <img class="w-14 h-14 rounded" src="{{ Storage::url($secondDish->image) }}" alt="">
+                            <a href="{{ route('second_dishes.show', $secondDish->id) }}">
+                                <img class="rounded border border-emerald-500 mb-3 frontCard"
+                                    src="{{ Storage::url($secondDish->image) }}" alt="">
+                            </a>
                         </div>
                         <div class="col-9">
                             <p class="lead fontSize font-medium pb-1">{{ $secondDish->description }}</p>
@@ -134,13 +148,16 @@
                             <p class="lead fontSize font-medium pb-1">{{ $redPizza->description3 }}</p>
                         </div>
                         <div class="col-3">
-                            <img class="w-14 h-14 rounded" src="{{ Storage::url($redPizza->image) }}" alt="">
+                            <a href="{{ route('second_dishes.show', $redPizza->id) }}">
+                                <img class="rounded border border-emerald-500 mb-3 frontCard"
+                                    src="{{ Storage::url($redPizza->image) }}" alt="">
+                            </a>
                         </div>
                     </div>
                 @endforeach
                 <div class="row">
-                    <div class="col-12 d-flex justify-content-center fontSizeCategory">
-                        <h3 class=" font-bold text-slate-500 mb-3 fontSizeCategory"> pizze rosse </h3>
+                    <div class="col-12 d-flex justify-content-center ">
+                        <h3 class=" font-bold text-slate-500 mb-3 fontSizeCategory2"> pizze rosse </h3>
                     </div>
                 </div>
             </div>
@@ -158,7 +175,8 @@
                 @foreach ($whitePizzas as $whitePizza)
                     <div class="row justify-center mt-2">
                         <div class="col-3">
-                            <img class="w-14 h-14 rounded" src="{{ Storage::url($whitePizza->image) }}" alt="">
+                            <img class="w-14 h-14 rounded" src="{{ Storage::url($whitePizza->image) }}"
+                                alt="">
                         </div>
                         <div class="col-9">
                             <h6 class="text-red-500 font-bold pb-1"> {{ $whitePizza->name }}
@@ -172,9 +190,12 @@
 
                     </div>
                 @endforeach
+            </div>
+
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 d-flex justify-content-center fontSizeCategory">
-                        <h3 class=" font-bold text-slate-500 mb-3 fontSizeCategory"> pizze bianche </h3>
+                    <div class="col-12 d-flex justify-content-center mt-2 mb-2">
+                        <h3 class=" font-bold text-slate-500 mb-3 fontSizeCategory2"> pizze bianche </h3>
                     </div>
                 </div>
             </div>

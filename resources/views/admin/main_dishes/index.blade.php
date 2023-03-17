@@ -56,7 +56,7 @@
                                     <img src="{{ Storage::url($mainDish->image) }}" alt="" class="w-10 h-10 rounded">
                                 </th>
                                 <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white d-inline-block text-truncatee" style="max-width: 230px">
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white d-inline-block text-truncate" style="max-width: 200px">
                                     {{ $mainDish->description }}
                                 </th>
                                 {{-- <th scope="row"

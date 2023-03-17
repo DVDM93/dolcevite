@@ -57,5 +57,24 @@ class GeneralController extends Controller
         return view('starters.show', compact('starter'));
     }
 
+    public function rimoliShow(Rimoli $rimoli)
+    {
+        return view('rimolis.show', compact('rimoli'));
+    }
 
+
+    public function mainDishShow(MainDish $mainDish)
+    {
+        return view('main_dishes.show', compact('mainDish'));
+    }
+
+    public function secondDishShow(SecondDish $secondDish)
+    {
+        return view('second_dishes.show', compact('secondDish'));
+    }
+
+    public function redPizzaShow(RedPizza $redPizza)
+    {
+        return view('red_pizzas.show', compact('redPizza'));
+    }
 }

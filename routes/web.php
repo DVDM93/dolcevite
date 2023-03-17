@@ -41,7 +41,16 @@ Route::get('/', function () {
 Route::get('/' , [GeneralController::class, 'index'])->name('welcome');
 Route::get('/prova' , [GeneralController::class, 'index2'])->name('prova');
 
-;Route::get('/starters/{starter}' , [GeneralController::class, 'starterShow'])->name('starters.show');
+//? Viste dettaglio
+Route::get('/starters/{starter}' , [GeneralController::class, 'starterShow'])->name('starters.show');
+Route::get('/starters/{rimoli}' , [GeneralController::class, 'rimoliShow'])->name('rimolis.show');
+Route::get('/mainDishes/{mainDish}' , [GeneralController::class, 'mainDishShow'])->name('main_dishes.show');
+Route::get('/secondDishes/{secondDish}' , [GeneralController::class, 'secondDishShow'])->name('second_dishes.show');
+Route::get('/redPizzas/{redPizza}' , [GeneralController::class, 'redPizzaShow'])->name('red_pizzas.show');
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

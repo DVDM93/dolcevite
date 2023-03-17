@@ -69,7 +69,7 @@ class SecondDishController extends Controller
     public function update(Request $request, SecondDish $secondDish)
     {
         $request->validate([
-            'name' => 'required',
+
             'description' => 'required',
         ]);
 
