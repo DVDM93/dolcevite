@@ -13,14 +13,14 @@
 
 <body>
 
-    <header class="landing">
+    <header class="mainBg">
         <div class="container flex justify-center">
             <img src="{{ asset('image/landing.jpg') }}" alt="Copertina DV">
         </div>
     </header>
 
 
-    <div class="container-fluid landing">
+    <div class="container-fluid mainBg">
 
         <div class="container bgHippie">
 
@@ -36,10 +36,13 @@
                             <p class="lead fontSize font-medium pb-2 mb-2">{{ $starter->description3 }}</p>
                         </div>
                         <div class="col-3">
-                            <a href="{{ route('starters.show', $starter->id) }}">
-                                <img class="rounded border border-emerald-500 mb-3 frontCard"
-                                    src="{{ Storage::url($starter->image) }}" alt="">
-                            </a>
+                            <div class="frontCard">
+                                <a href="{{ route('starters.show', $starter->id) }}">
+                                    <img class="mb-3"
+                                        src="{{ Storage::url($starter->image) }}" alt="">
+                                </a>
+                            </div>
+                            
                         </div>
                     </div>
                 @endforeach
@@ -228,7 +231,7 @@
                 @endforeach
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center fontSizeCategory">
-                        <h3 class=" font-bold text-slate-500 mb-3 fontSizeCategory"> pizze speciali </h3>
+                        <h3 class=" font-bold text-slate-500 mb-3 fontSizeCategory2"> pizze speciali </h3>
                     </div>
                 </div>
             </div>
