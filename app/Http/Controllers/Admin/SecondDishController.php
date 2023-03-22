@@ -42,6 +42,7 @@ class SecondDishController extends Controller
             'description2' => $request->description2,
             'description3' => $request->description3,
             'price' => $request->price,
+            'subprice' => $request->subprice,
             ]);
 
             return to_route('admin.second_dishes.index');
@@ -86,6 +87,7 @@ class SecondDishController extends Controller
             'description3' => $request->description3,
             'image' => $image,
             'price' => $request->price,
+            'subprice' => $request->subprice,
          ]);
 
          return to_route('admin.second_dishes.index')->with('success', 'Modifica eseguita');

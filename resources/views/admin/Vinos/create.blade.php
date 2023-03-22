@@ -50,17 +50,15 @@
                             @error('price')
                                 <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
-                            <div class="sm:col-span-6">
-                                <label for="copa" class="block text-sm font-medium text-gray-700 mt-3"> Copa
-                                </label>
+                            <div class="sm:col-span-6 mb-2">
+                                <label for="subprice" class="block text-sm font-medium text-gray-700 mt-3"> Dettaglio prezzo </label>
                                 <div class="mt-1">
-                                    <input type="number" min="0.00" max="10000.00" step="0.01" id="copa"
-                                        name="copa"
+                                    <input type="text" id="subprice" name="subprice"
                                         class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                                 </div>
-                                @error('copa')
-                                <div class="text-sm text-red-400">{{ $message }}</div>
-                            @enderror
+                                @error('subprice')
+                                    <div class="text-sm text-red-400">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="sm:col-span-6 pt-5">
                                 <label for="body"

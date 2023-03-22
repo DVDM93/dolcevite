@@ -54,27 +54,57 @@ class GeneralController extends Controller
 
     public function starterShow(Starters $starter)
     {
-        return view('starters.show', compact('starter'));
+        return view('details.starters.show', compact('starter'));
     }
 
     public function rimoliShow(Rimoli $rimoli)
     {
-        return view('rimolis.show', compact('rimoli'));
+        return view('details.rimolis.show', compact('rimoli'));
     }
 
 
     public function mainDishShow(MainDish $mainDish)
     {
-        return view('main_dishes.show', compact('mainDish'));
+        return view('details.main_dishes.show', compact('mainDish'));
     }
 
     public function secondDishShow(SecondDish $secondDish)
     {
-        return view('second_dishes.show', compact('secondDish'));
+        return view('details.second_dishes.show', compact('secondDish'));
     }
 
     public function redPizzaShow(RedPizza $redPizza)
     {
-        return view('red_pizzas.show', compact('redPizza'));
+        return view('details.red_pizzas.show', compact('redPizza'));
+    }
+
+    public function whitePizzaShow(WhitePizza $whitePizza)
+    {
+        return view('details.white_pizzas.show', compact('whitePizza'));
+    }
+
+    public function specialPizzaShow(SpecialPizza $specialPizza)
+    {
+        return view('details.special_pizzas.show', compact('specialPizza'));
+    }
+
+    public function newEntryShow(NewEntry $newEntry)
+    {
+        return view('details.new_entries.show', compact('newEntry'));
+    }
+
+    public function dessertShow(Dessert $dessert)
+    {
+        return view('details.desserts.show', compact('dessert'));
+    }
+    
+    public function cocktailShow(Cocktail $cocktail)
+    {
+        return view('details.cocktails.show', compact('cocktail'));
+    }
+
+    public function vinoShow(Vino $vino)
+    {
+        return view('details.vinos.show', compact('vino'));
     }
 }

@@ -9,14 +9,16 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <div class="flex m-2 p-2">
-                <a href="{{ route('admin.vinos.index') }}" class="px-4 py-2 mb-2 text-3xl text-white font-extrabold bg-green-500 hover:bg-green-300 rounded-lg">
+                <a href="{{ route('admin.vinos.index') }}"
+                    class="px-4 py-2 mb-2 text-3xl text-white font-extrabold bg-green-500 hover:bg-green-300 rounded-lg">
                     Vini Index
                 </a>
             </div>
 
             <div class="m-2 p-2 bg-slate-100 rounded">
                 <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                    <form method="POST" action="{{ route('admin.vinos.update', $vino->id) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.vinos.update', $vino->id) }}"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="sm:col-span-6 mb-2">
@@ -30,7 +32,8 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6">
-                            <label for="image" class="block text-sm font-medium text-gray-700 mt-3"> Immagine </label>
+                            <label for="image" class="block text-sm font-medium text-gray-700 mt-3"> Immagine
+                            </label>
                             <div>
                                 <img src="{{ Storage::url($vino->image) }}" alt="" class="w-10 h-10">
                             </div>
@@ -45,58 +48,64 @@
                         <div class="sm:col-span-6">
                             <label for="price" class="block text-sm font-medium text-gray-700 mt-3"> Prezzo </label>
                             <div class="mt-1">
-                                <input type="number" min="0.00" max="10000.00" step="0.01" id="price" name="price" value="{{ $vino->price }}"
+                                <input type="number" min="0.00" max="10000.00" step="0.01" id="price"
+                                    name="price" value="{{ $vino->price }}"
                                     class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             @error('price')
                                 <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
-                            <div class="sm:col-span-6">
-                                <label for="copa" class="block text-sm font-medium text-gray-700 mt-3"> Copa </label>
+                            <div class="sm:col-span-6 mb-2">
+                                <label for="subprice" class="block text-sm font-medium text-gray-700"> Dettaglio prezzo
+                                </label>
                                 <div class="mt-1">
-                                    <input type="number" min="0.00" max="10000.00" step="0.01" id="copa" name="copa" value="{{ $vino->copa }}"
+                                    <input type="text" id="subprice" name="subprice"
+                                        value="{{ $vino->subprice }}"
                                         class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                                 </div>
-                                @error('copa')
+                                @error('subprice')
                                     <div class="text-sm text-red-400">{{ $message }}</div>
                                 @enderror
-                        </div>
-                        <div class="sm:col-span-6 pt-5">
-                            <label for="body" class="block text-sm font-medium text-gray-700">Descrizione</label>
-                            <div class="mt-1">
-                                <textarea id="body" rows="3" name="description"
-                                    class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                            </div>
+                            <div class="sm:col-span-6 pt-5">
+                                <label for="body"
+                                    class="block text-sm font-medium text-gray-700">Descrizione</label>
+                                <div class="mt-1">
+                                    <textarea id="body" rows="3" name="description"
+                                        class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                 {{ $vino->description }}
                             </textarea>
+                                </div>
+                                @error('description')
+                                    <div class="text-sm text-red-400">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('description')
-                                <div class="text-sm text-red-400">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="sm:col-span-6 pt-5">
-                            <label for="body2" class="block text-sm font-medium text-gray-700">Descrizione 2</label>
-                            <div class="mt-1">
-                                <textarea id="body2" rows="3" name="description2"
-                                    class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                            <div class="sm:col-span-6 pt-5">
+                                <label for="body2" class="block text-sm font-medium text-gray-700">Descrizione
+                                    2</label>
+                                <div class="mt-1">
+                                    <textarea id="body2" rows="3" name="description2"
+                                        class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                     {{ $vino->description2 }}
                                 </textarea>
+                                </div>
+                                @error('description2')
+                                    <div class="text-sm text-red-400">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('description2')
-                                <div class="text-sm text-red-400">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="sm:col-span-6 pt-5">
-                            <label for="body3" class="block text-sm font-medium text-gray-700">Descrizione 3</label>
-                            <div class="mt-1">
-                                <textarea id="body3" rows="3" name="description3"
-                                    class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                            <div class="sm:col-span-6 pt-5">
+                                <label for="body3" class="block text-sm font-medium text-gray-700">Descrizione
+                                    3</label>
+                                <div class="mt-1">
+                                    <textarea id="body3" rows="3" name="description3"
+                                        class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                     {{ $vino->description3 }}
                                 </textarea>
+                                </div>
+                                @error('description3')
+                                    <div class="text-sm text-red-400">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('description3')
-                                <div class="text-sm text-red-400">{{ $message }}</div>
-                            @enderror
-                        </div>
 
                         </div>
                         <div class="mt-6 p-4">

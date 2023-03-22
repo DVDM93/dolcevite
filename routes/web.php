@@ -42,14 +42,17 @@ Route::get('/' , [GeneralController::class, 'index'])->name('welcome');
 Route::get('/prova' , [GeneralController::class, 'index2'])->name('prova');
 
 //? Viste dettaglio
-Route::get('/starters/{starter}' , [GeneralController::class, 'starterShow'])->name('starters.show');
-Route::get('/rimolis/{rimoli}' , [GeneralController::class, 'rimoliShow'])->name('rimolis.show');
-Route::get('/mainDishes/{mainDish}' , [GeneralController::class, 'mainDishShow'])->name('main_dishes.show');
-Route::get('/secondDishes/{secondDish}' , [GeneralController::class, 'secondDishShow'])->name('second_dishes.show');
-Route::get('/redPizzas/{redPizza}' , [GeneralController::class, 'redPizzaShow'])->name('red_pizzas.show');
-
-
-
+Route::get('/starters/{starter}' , [GeneralController::class, 'starterShow'])->name('details.starters.show');
+Route::get('/rimolis/{rimoli}' , [GeneralController::class, 'rimoliShow'])->name('details.rimolis.show');
+Route::get('/mainDishes/{mainDish}' , [GeneralController::class, 'mainDishShow'])->name('details.main_dishes.show');
+Route::get('/secondDishes/{secondDish}' , [GeneralController::class, 'secondDishShow'])->name('details.second_dishes.show');
+Route::get('/redPizzas/{redPizza}' , [GeneralController::class, 'redPizzaShow'])->name('details.red_pizzas.show');
+Route::get('/whitePizzas/{whitePizza}' , [GeneralController::class, 'whitePizzaShow'])->name('details.white_pizzas.show');
+Route::get('/specialPizzas/{specialPizza}' , [GeneralController::class, 'specialPizzaShow'])->name('details.special_pizzas.show');
+Route::get('/newEntries/{newEntry}' , [GeneralController::class, 'newEntryShow'])->name('details.new_entries.show');
+Route::get('/desserts/{dessert}' , [GeneralController::class, 'dessertShow'])->name('details.desserts.show');
+Route::get('/cocktails/{cocktail}' , [GeneralController::class, 'cocktailShow'])->name('details.cocktails.show');
+Route::get('/vinos/{vino}' , [GeneralController::class, 'vinoShow'])->name('details.vinos.show');
 
 
 Route::get('/dashboard', function () {

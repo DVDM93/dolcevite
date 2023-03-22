@@ -42,7 +42,7 @@ class VinoController extends Controller
             'description2' => $request->description2,
             'description3' => $request->description3,
             'price' => $request->price,
-            'copa' => $request->copa,
+            'subprice' => $request->subprice,
         ]);
 
         return to_route('admin.vinos.index');
@@ -71,7 +71,7 @@ class VinoController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            //'description' => 'required',
         ]);
 
         $image = $vino->image;
@@ -87,7 +87,7 @@ class VinoController extends Controller
             'description3' => $request->description3,
             'image' => $image,
             'price' => $request->price,
-            'copa' => $request->copa,
+            'subprice' => $request->subprice,
          ]);
 
          return to_route('admin.vinos.index')->with('success', 'Modifica eseguita');

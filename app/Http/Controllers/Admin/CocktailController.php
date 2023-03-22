@@ -69,7 +69,7 @@ class CocktailController extends Controller
     public function update(Request $request, Cocktail $cocktail)
     {
         $request->validate([
-            'name' => 'required',
+            'price' => 'required',
             // 'description' => 'required'
         ]);
         $image = $cocktail->image;
