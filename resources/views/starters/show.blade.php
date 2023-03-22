@@ -30,7 +30,7 @@
             </div>
             <div class="actionBtns">
                 <div class="left">
-                    <i class="fas fa-heart text-red-600" id="heart-icon" onclick="myIcon"></i>
+                    <i class="fas fa-heart text-red-600"></i>
                     <i class="fa-regular fa-comment"></i>
                     <i class="fa-regular fa-paper-plane"></i>
                 </div>
@@ -49,15 +49,7 @@
             </div>
             <h5 class="postTime"> 3 hours ago</h5>
         </div>
-    </div>
-
-    <script>
-        var myIcon = document.getElementById("heart-icon");
-        myIcon.addEventListener("click", function() {
-          myIcon.classList.toggle("black");
-        });
-      </script>
-      
+    </div>    
 
 </body>
 

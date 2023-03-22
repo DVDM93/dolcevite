@@ -43,7 +43,7 @@ Route::get('/prova' , [GeneralController::class, 'index2'])->name('prova');
 
 //? Viste dettaglio
 Route::get('/starters/{starter}' , [GeneralController::class, 'starterShow'])->name('starters.show');
-Route::get('/starters/{rimoli}' , [GeneralController::class, 'rimoliShow'])->name('rimolis.show');
+Route::get('/rimolis/{rimoli}' , [GeneralController::class, 'rimoliShow'])->name('rimolis.show');
 Route::get('/mainDishes/{mainDish}' , [GeneralController::class, 'mainDishShow'])->name('main_dishes.show');
 Route::get('/secondDishes/{secondDish}' , [GeneralController::class, 'secondDishShow'])->name('second_dishes.show');
 Route::get('/redPizzas/{redPizza}' , [GeneralController::class, 'redPizzaShow'])->name('red_pizzas.show');

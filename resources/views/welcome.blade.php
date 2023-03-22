@@ -46,26 +46,27 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="container mt-3 flex flex-col">
-                    @foreach ($rimolis as $rimoli)
-                        <div class="row justify-center mt-2">
-                            <div class="col-3">
-                                <a href="{{ route('starters.show', $rimoli->id) }}">
-                                    <img class="rounded border border-emerald-500 mb-3 frontCard"
+                @foreach ($rimolis as $rimoli)
+                    <div class="row justify-center mt-2">
+                        <div class="col-3">
+                            <div class="frontCard">
+                                <a href="{{ route('rimolis.show', $rimoli->id) }}">
+                                    <img class="mb-3"
                                         src="{{ Storage::url($rimoli->image) }}" alt="">
                                 </a>
                             </div>
-                            <div class="col-9">
-                                <h6 class="text-red-500 font-bold pb-1 "> {{ $rimoli->name }} <span>
-                                        {{ $rimoli->price }}
-                                    </span> <span> € </span></h6>
-                                <p class="lead fontSize font-medium pb-1">{{ $rimoli->description }}</p>
-                                <p class="lead fontSize font-medium pb-1">{{ $rimoli->description2 }}</p>
-                                <p class="lead fontSize font-medium pb-1">{{ $rimoli->description3 }}</p>
-                            </div>
                         </div>
-                    @endforeach
-                </div>
+                        <div class="col-9">
+                            <h6 class="text-red-500 pb-1 fontName ms-3"> {{ $rimoli->name }} <span> {{ $rimoli->price }}
+                                </span> <span> € </span></h6>
+                            <p class="lead fontSize font-medium pb-2 ms-3">{{ $rimoli->description }}</p>
+                            <p class="lead fontSize font-medium pb-2 ms-3">{{ $rimoli->description2 }}</p>
+                            <p class="lead fontSize font-medium pb-2 ms-3 mb-2">{{ $rimoli->description3 }}</p>
+                        </div>
+                        
+                    </div>
+                @endforeach
+                
             </div>
 
             <div class="container-fluid">
